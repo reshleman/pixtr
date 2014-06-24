@@ -1,0 +1,6 @@
+<h1>Pixtr Galleries</h1>
+<ul>
+<% GALLERIES.keys.each do |gallery_name| %>
+  <li><a href="/gallery/<%= gallery_name %>"><%= gallery_name.capitalize %></a></li>
+<% end %>
+</ul>

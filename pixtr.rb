@@ -7,11 +7,13 @@ GALLERIES = {
 
 get "/" do
   @page_title = "Pixtr Galleries"
+  @galleries = GALLERIES.keys
   erb :index, layout: :layout
 end
 
 get "/gallery/:name" do
   @name = params[:name]
+  @galleries = GALLERIES[@name]
   @page_title = "#{@name.capitalize} Gallery"
   erb :gallery, layout: :layout
 end

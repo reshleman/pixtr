@@ -13,7 +13,7 @@ end
 
 get "/gallery/:name" do
   @name = params[:name]
-  @galleries = GALLERIES[@name]
+  @filenames = GALLERIES[@name]
   @page_title = "#{@name.capitalize} Gallery"
   erb :gallery, layout: :layout
 end

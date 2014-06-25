@@ -1,4 +1,4 @@
-<h1><%= @name.capitalize %> Gallery</h1>
-<% @filenames.each do |filename| %>
-  <img src="/<%= filename %>">
+<h1><%= @gallery.name.capitalize %> Gallery</h1>
+<% @images.each do |image| %>
+  <img src="<%= image.url %>" width="300px">
 <% end %>

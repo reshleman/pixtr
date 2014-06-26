@@ -50,6 +50,18 @@ put "/galleries/:gallery_id" do
   redirect to("/galleries/#{@gallery.id}")
 end
 
+# DELETE gallery
+delete "/galleries/:gallery_id" do
+  @gallery = Gallery.find(params[:gallery_id])
+
+  @gallery.images.each do |image|
+    image.destroy
+  end
+
+  @gallery.destroy
+  redirect to("/")
+end
+
 # GET new image form
 get "/galleries/:gallery_id/images/new" do
   @gallery_id = params[:gallery_id]

@@ -2,6 +2,10 @@
 <h2><%= @gallery.description %></h2>
 <a href="/galleries/<%= @gallery.id %>/images/new">Add an image</a>
 <a href="/galleries/<%= @gallery.id %>/edit">Edit this gallery</a>
+<form action="/galleries/<%= @gallery.id %>" method="POST">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Gallery">
+</form>
 <div>
   <% @images.each do |image| %>
     <img src="<%= image.url %>" width="300px">

@@ -16,12 +16,12 @@ end
 get "/" do
   @page_title = "Pixtr Galleries"
   @galleries = Gallery.order("name ASC")
-  erb :index, layout: :layout
+  erb :index
 end
 
 get "/galleries/new" do
   @page_title = "Create a New Gallery"
-  erb :new_gallery, layout: :layout
+  erb :new_gallery
 end
 
 get "/gallery/:name" do
@@ -29,7 +29,7 @@ get "/gallery/:name" do
   @gallery = Gallery.find_by(name: @name)
   @images = @gallery.images
   @page_title = "#{@gallery.name.capitalize} Gallery"
-  erb :gallery, layout: :layout
+  erb :gallery
 end
 
 post "/galleries" do

@@ -1,7 +1,7 @@
 <h1>Pixtr Galleries</h1>
 <ul>
 <% @galleries.each do |gallery| %>
-  <li><a href="/gallery/<%= gallery.name.capitalize %>"><%= gallery.name.capitalize%></a></li>
+  <li><a href="/galleries/<%= gallery.id %>"><%= gallery.name.capitalize%></a></li>
 <% end %>
 </ul>
 <p>

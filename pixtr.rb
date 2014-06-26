@@ -24,16 +24,15 @@ get "/galleries/new" do
   erb :new_gallery
 end
 
-get "/gallery/:name" do
-  @name = params[:name]
-  @gallery = Gallery.find_by(name: @name)
+get "/galleries/:id" do
+  @id = params[:id]
+  @gallery = Gallery.find(@id)
   @images = @gallery.images
   @page_title = "#{@gallery.name.capitalize} Gallery"
   erb :gallery
 end
 
 post "/galleries" do
-  @gallery = Gallery.new(params[:gallery])
-  @gallery.save
-  redirect to("/gallery/#{@gallery.name}")
+  @gallery = Gallery.create(params[:gallery])
+  redirect to("/galleries/#{@gallery.id}")
 end

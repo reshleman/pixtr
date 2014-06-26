@@ -33,3 +33,13 @@ post "/galleries" do
   @gallery = Gallery.create(params[:gallery])
   redirect to("/galleries/#{@gallery.id}")
 end
+
+get "/galleries/:gallery_id/images/new" do
+  @gallery_id = params[:gallery_id]
+  erb :new_image
+end
+
+post "/galleries/:gallery_id/images" do
+  @image = Image.create(params[:image])
+  redirect to("/galleries/#{@image.gallery_id}")
+end

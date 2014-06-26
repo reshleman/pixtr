@@ -1,0 +1,17 @@
+<h1>Add an image</h1>
+<form action="/galleries/<%= @gallery_id %>/images" method="POST">
+  <input type="hidden" name="image[gallery_id]" value="<%= @gallery_id %>">
+  <div>
+    <label>Image Name:</label>
+    <input type="text" name="image[name]">
+  </div>
+  <div>
+    <label>Image Descirption:</label>
+    <input type="text" mame="image[description]">
+  </div>
+  <div>
+    <label>Image URL:</label>
+    <input type="text" name="image[url]">
+  </div>
+  <input type="submit" value="Add Image">
+</form>

@@ -19,16 +19,16 @@ get "/" do
   erb :index
 end
 
+# GET new gallery form
+get "/galleries/new" do
+  erb :new_gallery
+end
+
 # GET gallery instance
 get "/galleries/:gallery_id" do
   @gallery = Gallery.find(params[:gallery_id])
   @images = @gallery.images
   erb :gallery
-end
-
-# GET new gallery form
-get "/galleries/new" do
-  erb :new_gallery
 end
 
 # POST new gallery

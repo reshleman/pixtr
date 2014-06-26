@@ -1,6 +1,7 @@
 <h1><%= @gallery.name.capitalize %> Gallery</h1>
 <h2><%= @gallery.description %></h2>
 <a href="/galleries/<%= @gallery.id %>/images/new">Add an image</a>
+<a href="/galleries/<%= @gallery.id %>/edit">Edit this gallery</a>
 <div>
   <% @images.each do |image| %>
     <img src="<%= image.url %>" width="300px">

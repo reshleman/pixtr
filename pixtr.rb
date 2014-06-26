@@ -22,6 +22,11 @@ get "/galleries/new" do
   erb :new_gallery
 end
 
+post "/galleries" do
+  @gallery = Gallery.create(params[:gallery])
+  redirect to("/galleries/#{@gallery.id}")
+end
+
 get "/galleries/:id" do
   @id = params[:id]
   @gallery = Gallery.find(@id)
@@ -29,8 +34,13 @@ get "/galleries/:id" do
   erb :gallery
 end
 
-post "/galleries" do
-  @gallery = Gallery.create(params[:gallery])
+get "/galleries/:gallery_id/edit" do
+  @gallery = Gallery.find(params[:gallery_id])
+  erb :edit_gallery
+end
+
+put "/galleries/:gallery_id" do
+  @gallery = Gallery.update(params[:gallery_id], params[:gallery])
   redirect to("/galleries/#{@gallery.id}")
 end
 
